@@ -3,16 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
     <link rel="stylesheet" href="css/styles.css" />
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
     <title>Weather Dashboard</title>
   </head>
   <body>
-    <main class="weather-app">
+    <main>
       <form class="search-container" role="search">
+        <h1 class="dashboard-title">Weather Dashboard</h1>
         <label for="location-search" class="visually-hidden"
           >Search for location</label
         >
@@ -22,34 +20,31 @@
           class="search-bar"
           placeholder="Search location..."
         />
-        <button type="submit" class="search-button" aria-label="Search">
-          <i class="bx bx-search search-icon"></i>
-        </button>
       </form>
 
       <section class="container">
         <article class="left-info">
           <div class="pic-gradient" aria-hidden="true"></div>
           <header class="today-info">
-            <h2>Sunday</h2>
-            <time datetime="2023-08-23">23 August 2023</time>
+            <h2>Day</h2>
+            <time>Date</time>
             <div class="location">
               <i class="bx bx-current-location" aria-hidden="true"></i>
-              <span>Valenzuela, PH</span>
+              <span>City</span>
             </div>
           </header>
           <div class="today-weather">
             <i class="bx bx-sun" aria-hidden="true"></i>
             <h1 class="weather-temp">29°C</h1>
-            <h3>Sunny</h3>
+            <h3 class="weather-description">Sunny</h3>
           </div>
         </article>
 
         <aside class="right-info">
           <section class="day-info">
             <div class="weather-stat">
-              <span class="title">PRECIPITATION</span>
-              <span class="value">10 %</span>
+              <span class="title">SEA LEVEL</span>
+              <span class="value">1000</span>
             </div>
             <div class="weather-stat">
               <span class="title">HUMIDITY</span>
@@ -86,25 +81,11 @@
               </li>
             </ul>
           </section>
-
-          <div class="btn-container">
-            <button class="loc-button" type="button">Search Location</button>
-          </div>
         </aside>
       </section>
     </main>
 
-    <style>
-      .visually-hidden {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        margin: -1px;
-        padding: 0;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        border: 0;
-      }
-    </style>
+    <script type="module" src="./scripts/config.js"></script>
+    <script type="module" src="./scripts/script.js"></script>
   </body>
 </html>

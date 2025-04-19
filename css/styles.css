@@ -31,46 +31,67 @@ body {
   justify-content: center;
 }
 
+.dashboard-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0px auto 20px auto;
+  text-align: center;
+  background: linear-gradient(
+    90deg,
+    var(--green-medium),
+    var(--secondary-green),
+    var(--primary-green)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
 .search-container {
   position: relative;
   width: 400px;
-  margin: 0 auto 70px;
+  margin: 0 auto 30px;
 }
 
 .search-bar {
   width: 100%;
   padding: 12px 20px;
   background: var(--white);
-  border: 1px solid var(--green-dark);
+  border: 1px solid var(--black-alpha-35);
   border-radius: 25px;
-  color: var(--green-dark);
   font-size: 16px;
   outline: none;
-  box-shadow: 0 5px 15px var(--black-alpha-15);
   transition: all 0.3s ease;
 }
 
 .search-bar::placeholder {
-  color: var(--green-dark);
+  color: var(--black-alpha-35);
 }
 
 .search-bar:focus {
   background: var(--white);
   box-shadow: 0 5px 20px var(--black-alpha-2);
-  border: 1px solid var(--green-light);
+  border: 1px solid var(--dark-slate);
 }
 
 .search-icon {
   position: absolute;
   right: 15px;
-  top: 50%;
+  top: 35%;
   transform: translateY(-50%);
-  color: var(--green-dark);
+  color: var(--dark-slate);
   cursor: pointer;
 }
 
 .search-button {
-  background-color: transparent;
+  background: transparent;
+  border: none;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
 }
 
 .container {
@@ -85,22 +106,24 @@ body {
   color: var(--white);
   border-radius: 25px;
   box-shadow: 0 5px 15px var(--black-alpha-35);
+  display: flex;
 }
 
 .left-info {
   width: 360px;
   height: 100%;
-  float: left;
+  flex-shrink: 0;
   display: flex;
   border-radius: 25px;
   justify-content: center;
-  background: url("../assets/background.jpg");
+  background: url("../assets/clear-sky.png");
   background-position: center;
   background-size: cover;
   transform: scale(1.03) perspective(200px);
   cursor: pointer;
   box-shadow: 0 0 20px -10px var(--black-alpha-2);
   transition: all 0.3s ease;
+  position: relative;
 }
 
 .left-info:hover {
@@ -115,8 +138,8 @@ body {
   left: 0;
   background: linear-gradient(
     135deg,
-    var(--primary-green) 10%,
-    var(--secondary-green) 100%
+    var(--dark-slate) 10%,
+    var(--white-alpha-25) 100%
   );
   border-radius: 25px;
   opacity: 0.5;
@@ -127,6 +150,7 @@ body {
   display: flex;
   flex-direction: column;
   margin-top: 25px;
+  align-items: center;
 }
 
 .today-weather {
@@ -142,16 +166,28 @@ body {
   font-size: 4.6rem;
 }
 
+.weather-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 5px;
+}
+
 .weather-temp {
   font-weight: 700;
   font-size: 3.5rem;
 }
 
+.weather-description::first-letter {
+  text-transform: capitalize;
+}
+
 .right-info {
-  float: right;
+  flex: 1;
   position: relative;
   height: 100%;
-  padding-top: 25px;
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
 }
 
 .day-info {
@@ -178,6 +214,7 @@ body {
   margin: 10px 35px;
   box-shadow: 0 5px 15px var(--black-alpha-35);
   border-radius: 10px;
+  flex-wrap: nowrap;
 }
 
 .days-list li {
@@ -189,6 +226,7 @@ body {
   align-items: center;
   border-radius: 10px;
   transition: all 0.3s ease;
+  flex: 1;
 }
 
 .days-list li .bx {
@@ -208,25 +246,46 @@ body {
   font-weight: 700;
 }
 
-.btn-container {
-  padding: 25px 35px;
+.forecast-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 5px;
 }
 
-.loc-button {
-  outline: none;
-  width: 100%;
-  border: none;
-  font-weight: 700;
-  border-radius: 25px;
-  padding: 10px;
-  background: var(--secondary-green);
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.toast {
+  position: fixed;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+  background: linear-gradient(
+    135deg,
+    var(--primary-green),
+    var(--secondary-green)
+  );
   color: var(--white);
-  cursor: pointer;
-  box-shadow: 0 5px 15px var(--black-alpha-35);
-  transition: all 0.3s ease;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px var(--black-alpha-35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+  font-weight: 500;
 }
 
-.loc-button:hover {
-  background: var(--green-light);
-  color: var(--dark-slate);
+.toast.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
 }
