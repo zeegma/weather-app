@@ -3,7 +3,108 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <title>Weather Dashboard</title>
   </head>
-  <body></body>
+  <body>
+    <main class="weather-app">
+      <form class="search-container" role="search">
+        <label for="location-search" class="visually-hidden"
+          >Search for location</label
+        >
+        <input
+          type="text"
+          id="location-search"
+          class="search-bar"
+          placeholder="Search location..."
+        />
+        <button type="submit" class="search-button" aria-label="Search">
+          <i class="bx bx-search search-icon"></i>
+        </button>
+      </form>
+
+      <section class="container">
+        <article class="left-info">
+          <div class="pic-gradient" aria-hidden="true"></div>
+          <header class="today-info">
+            <h2>Sunday</h2>
+            <time datetime="2023-08-23">23 August 2023</time>
+            <div class="location">
+              <i class="bx bx-current-location" aria-hidden="true"></i>
+              <span>Valenzuela, PH</span>
+            </div>
+          </header>
+          <div class="today-weather">
+            <i class="bx bx-sun" aria-hidden="true"></i>
+            <h1 class="weather-temp">29°C</h1>
+            <h3>Sunny</h3>
+          </div>
+        </article>
+
+        <aside class="right-info">
+          <section class="day-info">
+            <div class="weather-stat">
+              <span class="title">PRECIPITATION</span>
+              <span class="value">10 %</span>
+            </div>
+            <div class="weather-stat">
+              <span class="title">HUMIDITY</span>
+              <span class="value">50 %</span>
+            </div>
+            <div class="weather-stat">
+              <span class="title">WIND SPEED</span>
+              <span class="value">5 km/h</span>
+            </div>
+          </section>
+
+          <section class="forecast">
+            <h2 class="visually-hidden">4-Day Forecast</h2>
+            <ul class="days-list">
+              <li>
+                <i class="bx bx-cloud" aria-hidden="true"></i>
+                <span>Mon</span>
+                <span class="day-temp">20°C</span>
+              </li>
+              <li>
+                <i class="bx bx-sun" aria-hidden="true"></i>
+                <span>Tue</span>
+                <span class="day-temp">30°C</span>
+              </li>
+              <li>
+                <i class="bx bx-cloud-rain" aria-hidden="true"></i>
+                <span>Wed</span>
+                <span class="day-temp">15°C</span>
+              </li>
+              <li>
+                <i class="bx bx-cloud-drizzle" aria-hidden="true"></i>
+                <span>Thu</span>
+                <span class="day-temp">05°C</span>
+              </li>
+            </ul>
+          </section>
+
+          <div class="btn-container">
+            <button class="loc-button" type="button">Search Location</button>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <style>
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
+    </style>
+  </body>
 </html>
